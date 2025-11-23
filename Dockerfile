@@ -1,13 +1,3 @@
-# Stage 1: Build React UI
-FROM node:18-alpine as build-step
-WORKDIR /app
-COPY ui_ux/package.json ui_ux/package-lock.json ./
-# Install dependencies (legacy-peer-deps to avoid conflicts)
-RUN npm install --legacy-peer-deps
-COPY ui_ux/ ./
-RUN npm run build
-
-# Stage 2: Python Backend
 FROM python:3.11-slim
 WORKDIR /app
 
@@ -22,9 +12,6 @@ RUN pip install --no-cache-dir -r requirements_cloud.txt
 
 # Copy application code
 COPY . .
-
-# Copy built UI from Stage 1
-COPY --from=build-step /app/build ./ui_ux/build
 
 # Set environment variables
 ENV CLOUD_MODE=true
