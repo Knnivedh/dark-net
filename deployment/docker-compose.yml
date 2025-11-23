@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  nivya-cloud:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - CLOUD_MODE=true
+      - CEREBRAS_API_KEY=${CEREBRAS_API_KEY}
+    volumes:
+      - ../debug_log.txt:/app/debug_log.txt
