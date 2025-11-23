@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for caching
-COPY deployment/requirements_cloud.txt .
+COPY requirements_cloud.txt .
 RUN pip install --no-cache-dir -r requirements_cloud.txt
 
 # Copy application code
@@ -26,4 +26,4 @@ ENV PORT=5000
 EXPOSE 5000
 
 # Run the application
-CMD ["python", "deployment/cloud_server.py"]
+CMD ["python", "cloud_server.py"]

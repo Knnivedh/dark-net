@@ -4,8 +4,8 @@ import sys
 # Set cloud mode flag
 os.environ['CLOUD_MODE'] = 'true'
 
-# Add parent directory to path to import ui_bridge
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/..')
+# Set cloud mode flag
+os.environ['CLOUD_MODE'] = 'true'
 
 from ui_bridge import app
 

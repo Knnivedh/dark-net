@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+dist/
+build/
+*.spec
+installer_package/
+*.zip
+ui_ux/node_modules/
+debug_log.txt
+*.exe
+build_output/
+installer_output/
